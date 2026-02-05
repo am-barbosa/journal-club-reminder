@@ -6,6 +6,7 @@ from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
 REMINDER_DAYS = 0 # testing
+CHANNEL_ID = C06FN1RTTJB
 
 slack = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
 
@@ -29,7 +30,7 @@ for _, row in upcoming.iterrows():
 
     try:
         slack.chat_postMessage(
-            channel=row["SlackID"],
+            channel=row["CHANNEL_ID"],
             text=message
         )
         print(f"Sent reminder to {row['Speaker']}")
