@@ -5,7 +5,7 @@ import pandas as pd
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
-REMINDER_DAYS = 0 # testing
+REMINDER_DAYS = 11
 CHANNEL_ID = "C06FN1RTTJB"
 
 slack = WebClient(token=os.environ["SLACK_BOT_TOKEN"])
@@ -21,10 +21,10 @@ upcoming = df[df["Date"] == target_date]
 
 for _, row in upcoming.iterrows():
     message = (
-        f"👋 Hi {row['Speaker']}!\n\n"
-        f"Just a reminder that you’re scheduled to present at Mechanics Journal Club"
-        f"on *{row['Date']}* (in {REMINDER_DAYS} days).\n\n"
-        f"📄 Please suggest 3 papers that that everyone can vote for, and presented the most voted option. \n\n"
+        f"👋 Hej {row['Speaker']}!\n\n"
+        f"Just a reminder that you’re up next to present at the Journal Club "
+        f"on *{row['Date']}*.\n\n"
+        f"Please suggest 3 papers that that everyone can vote for, and present the most voted option. "
         f"Thanks!"
     )
 
