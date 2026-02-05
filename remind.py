@@ -30,7 +30,7 @@ for _, row in upcoming.iterrows():
 
     try:
         slack.chat_postMessage(
-            channel=row["CHANNEL_ID"],
+            channel=CHANNEL_ID,
             text=message
         )
         print(f"Sent reminder to {row['Speaker']}")
